@@ -33,7 +33,6 @@ public class FormActivity extends AppCompatActivity {
 
     private void setupButtonClickListener() {
         calculateButton.setOnClickListener(v -> {
-
             calculateBmi();
         });
     }

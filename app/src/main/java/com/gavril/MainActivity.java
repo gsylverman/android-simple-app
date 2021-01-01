@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
     private CardView startersCard, dessertCardView, mainCard, formCard;
     private TextView restaurantEmailTextView;
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,48 +22,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         findViews();
 
-        dessertCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goToDessertActivity = new Intent(MainActivity.this, DessertActivity.class);
-                startActivity(goToDessertActivity);
+        dessertCardView.setOnClickListener(v -> {
+            Intent goToDessertActivity = new Intent(MainActivity.this, DessertActivity.class);
+            startActivity(goToDessertActivity);
+        });
+
+        restaurantEmailTextView.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:gsylverman@gmail.com")); // only email apps should handle this
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
             }
         });
 
-        restaurantEmailTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("mailto:gsylverman@gmail.com")); // only email apps should handle this
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
-            }
+        mainCard.setOnClickListener(v -> {
+            Intent mainCoursesActivityIntent = new Intent(MainActivity.this, MainCoursesActivity.class);
+            startActivity(mainCoursesActivityIntent);
         });
 
-        mainCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent mainCoursesActivityIntent = new Intent(MainActivity.this, MainCoursesActivity.class);
-                startActivity(mainCoursesActivityIntent);
-            }
+        startersCard.setOnClickListener(v -> {
+            Intent starterActivityIntent = new Intent(MainActivity.this, StarterActivity.class);
+            startActivity(starterActivityIntent);
+
         });
 
-        startersCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent starterActivityIntent = new Intent(MainActivity.this, StarterActivity.class);
-                startActivity(starterActivityIntent);
-
-            }
-        });
-
-        formCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent formCardActivityIntent = new Intent(MainActivity.this, FormActivity.class);
-                startActivity(formCardActivityIntent);
-            }
+        formCard.setOnClickListener(v -> {
+            Intent formCardActivityIntent = new Intent(MainActivity.this, FormActivity.class);
+            startActivity(formCardActivityIntent);
         });
     }
 

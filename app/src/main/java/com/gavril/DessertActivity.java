@@ -33,14 +33,15 @@ public class DessertActivity extends AppCompatActivity {
         ArrayAdapter<Dish> dessertListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, desserts);
         listViewDessert.setAdapter(dessertListAdapter);
 
-        listViewDessert.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView textView = (TextView) view;
-                System.out.println(desserts[position].getTitle());
+        listViewDessert.setOnItemClickListener((parent, view, position, id) -> {
+            TextView textView = (TextView) view;
+            System.out.println(textView.getText());
 
-                System.out.println();
-            }
+            Dish dish = desserts[position];
+            int price = dish.getPrice();
+            String description = dish.getDescription();
+
+            System.out.println("Description: " + description + ", Price: " + price + "$");
         });
     }
 }
