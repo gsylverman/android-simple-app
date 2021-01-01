@@ -25,10 +25,6 @@ public class Dish {
 
     @Override
     public String toString() {
-        return "Dish{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                '}';
+        return title;
     }
 }

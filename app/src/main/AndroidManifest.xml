@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestaurantApp">
         <activity
+            android:name=".DessertActivity"
+            android:label="Dessert"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".FormActivity"
             android:label="Form"
-            android:parentActivityName=".MainActivity"
-            />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainCoursesActivity"
             android:label="Main Courses"
