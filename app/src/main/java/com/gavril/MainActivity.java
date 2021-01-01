@@ -13,11 +13,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CardView startersCard;
-    private CardView mainCard;
-    private CardView formCard;
+    private CardView startersCard, dessertCardView, mainCard, formCard;
     private TextView restaurantEmailTextView;
-    private CardView dessertCardView;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
 
     @Override
